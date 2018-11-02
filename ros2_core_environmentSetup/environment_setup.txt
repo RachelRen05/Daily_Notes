@@ -1,0 +1,48 @@
+rosdep install
+the same as:
+apt install -y --no-install-recommends \
+        libeigen3-dev \
+        libtinyxml2-dev \
+        qtbase5-dev \
+        libfreetype6 \
+        libfreetype6-dev \
+        libyaml-dev \
+        libconsole-bridge-dev \
+        libcurl4-openssl-dev \
+        curl \
+        libxaw7-dev \
+        libcppunit-dev \
+        libpcre3-dev \
+        cmake \
+        clang-format \
+        libgl1-mesa-dev \
+        libglu1-mesa-dev \
+        python3-flake8 \
+        pyflakes3 \
+        cppcheck \
+        libxrandr-dev \
+        libqt5core5a \
+        libqt5widgets5 \
+        python-mock \
+        python3-pkg-resources \
+        libxml2-utils \
+        libopencv-dev \
+        libtinyxml-dev \
+        python3-yaml \
+        uncrustify \
+        libqt5opengl5 \
+        python3-mock \
+        python3-pytest \
+        openssl \
+        python3-pep8 \
+        libassimp-dev \
+        libpoco-dev \
+        pydocstyle \
+        zlib1g-dev \
+        python3-empy \
+        libx11-dev \
+        libqt5gui5 \
+        python3-setuptools \
+        python3-catkin-pkg-modules \
+        pkg-config
+
