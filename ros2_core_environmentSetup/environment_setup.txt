@@ -1,6 +1,6 @@
 rosdep install
 the same as:
-apt install -y --no-install-recommends \
+sudo apt install -y --no-install-recommends \
         libeigen3-dev \
         libtinyxml2-dev \
         qtbase5-dev \
