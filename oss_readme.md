@@ -118,13 +118,13 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 		sudo apt install libboost-python1.62.0
 		```
 ## 4. Building and Installation
-* OpenVINO™ Toolkit Open Source
-	* set ENV InferenceEngine_DIR, CPU_EXTENSION_LIB and GFLAGS_LIB
-        ```bash
-        export InferenceEngine_DIR=/home/<hostname>/code/dldt/inference-engine/build/
-        export CPU_EXTENSION_LIB=/home/<hostname>/code/dldt/inference-engine/bin/intel64/Release/lib/libcpu_extension.so
-        export GFLAGS_LIB=/home/<hostname>/code/dldt/inference-engine/bin/intel64/Release/lib/libgflags_nothreads.a
-        ```
+
+* set ENV InferenceEngine_DIR, CPU_EXTENSION_LIB and GFLAGS_LIB
+	```bash
+	export InferenceEngine_DIR=/home/<hostname>/code/dldt/inference-engine/build/
+	export CPU_EXTENSION_LIB=/home/<hostname>/code/dldt/inference-engine/bin/intel64/Release/lib/libcpu_extension.so
+	export GFLAGS_LIB=/home/<hostname>/code/dldt/inference-engine/bin/intel64/Release/lib/libgflags_nothreads.a
+	```
 * Install ROS2_OpenVINO packages
 	```bash
 	mkdir -p ~/ros2_overlay_ws/src
@@ -142,37 +142,36 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 	```
 	
 ## 5. Running the Demo
-* OpenVINO™ Toolkit Open Source
-	* Preparation
-		* download model file (excute _once_)<br>
-        	```bash
-        	cd ~/code/open_model_zoo/model_downloader
-        	python3 downloader.py --name face-detection-adas-0001
-        	python3 downloader.py --name age-gender-recognition-retail-0013
-        	python3 downloader.py --name emotions-recognition-retail-0003
-        	python3 downloader.py --name head-pose-estimation-adas-0001
-		python3 downloader.py --name person-vehicle-bike-detection-crossroad-0078
-        	```
-		* copy label files (excute _once_)<br>
-			```bash
-			sudo cp ~/ros2_overlay_ws/src/ros2_openvino_toolkit/data/labels/emotions-recognition/FP32/emotions-recognition-retail-0003.labels /home/<hostname>/code/open_model_zoo/model_downloader/Retail/object_attributes/emotions_recognition/0003/dldt
-			```
-		* set ENV LD_LIBRARY_PATH<br>
-			```bash
-			export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/<hostname>/code/dldt/inference-engine/bin/intel64/Release/lib
-			```
-	* run sample code with parameters extracted from [yaml](https://github.com/intel/ros2_openvino_toolkit/blob/master/sample/param/pipeline_people_oss.yaml).
+* Preparation
+	* download model file (excute _once_)<br>
+        ```bash
+        cd ~/code/open_model_zoo/model_downloader
+        python3 downloader.py --name face-detection-adas-0001
+        python3 downloader.py --name age-gender-recognition-retail-0013
+        python3 downloader.py --name emotions-recognition-retail-0003
+        python3 downloader.py --name head-pose-estimation-adas-0001
+	python3 downloader.py --name person-vehicle-bike-detection-crossroad-0078
+        ```
+	* copy label files (excute _once_)<br>
 		```bash
-		ros2 run dynamic_vino_sample pipeline_with_params -config /home/<hostname>/ros2_overlay_ws/src/ros2_openvino_toolkit/sample/param/pipeline_people_oss.yaml
+		sudo cp ~/ros2_overlay_ws/src/ros2_openvino_toolkit/data/labels/emotions-recognition/FP32/emotions-recognition-retail-0003.labels /home/<hostname>/code/open_model_zoo/model_downloader/Retail/object_attributes/emotions_recognition/0003/dldt
 		```
-	* run object detection sample code with paramters extracted from [yaml](https://github.com/intel/ros2_openvino_toolkit/blob/master/sample/param/pipeline_object.yaml).
+	* set ENV LD_LIBRARY_PATH<br>
 		```bash
-		ros2 run dynamic_vino_sample object_detection_with_params -config /home/<hostname>/ros2_overlay_ws/src/ros2_openvino_toolkit/sample/param/pipeline_object_oss.yaml
+		export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/<hostname>/code/dldt/inference-engine/bin/intel64/Release/lib
 		```
-		**Note**: Need to manually modify the path of the model file in the .yaml configuration file.
-		```bash
-		model: /home/<hostname>/code/open_model_zoo/model_downloader/Transportation/object_detection/face/pruned_mobilenet_reduced_ssd_shared_weights/dldt/face-detection-adas-0001.xml
-		```
+* run sample code with parameters extracted from [yaml](https://github.com/intel/ros2_openvino_toolkit/blob/master/sample/param/pipeline_people_oss.yaml).
+	```bash
+	ros2 run dynamic_vino_sample pipeline_with_params -config /home/<hostname>/ros2_overlay_ws/src/ros2_openvino_toolkit/sample/param/pipeline_people_oss.yaml
+	```
+* run object detection sample code with paramters extracted from [yaml](https://github.com/intel/ros2_openvino_toolkit/blob/master/sample/param/pipeline_object.yaml).
+	```bash
+	ros2 run dynamic_vino_sample object_detection_with_params -config /home/<hostname>/ros2_overlay_ws/src/ros2_openvino_toolkit/sample/param/pipeline_object_oss.yaml
+	```
+	**Note**: Need to manually modify the path of the model file in the .yaml configuration file.
+	```bash
+	model: /home/<hostname>/code/open_model_zoo/model_downloader/Transportation/object_detection/face/pruned_mobilenet_reduced_ssd_shared_weights/dldt/face-detection-adas-0001.xml
+	```
 
 ## 6. Interfaces
 ### 6.1 Topic
