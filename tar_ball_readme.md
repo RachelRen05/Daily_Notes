@@ -35,11 +35,11 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 * Install ROS2 [Bouncy](https://github.com/ros2/ros2/wiki) ([guide](https://github.com/ros2/ros2/wiki/Linux-Development-Setup))<br>
 * Install [OpenVINO™ Toolkit](https://software.intel.com/en-us/openvino-toolkit) ([guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux))<br>
     	**Note**: Please use  *root privileges* to run the installer when installing the core components.
-	* Install OpenCL Driver for GPU
-		```bash
-		cd /opt/intel/computer_vision_sdk/install_dependencies
-		sudo ./install_NEO_OCL_driver.sh
-		```
+* Install OpenCL Driver for GPU
+	```bash
+	cd /opt/intel/computer_vision_sdk/install_dependencies
+	sudo ./install_NEO_OCL_driver.sh
+	```
 * Install Intel® RealSense™ SDK 2.0 [(tag v2.14.1)](https://github.com/IntelRealSense/librealsense/tree/v2.14.1)<br>
 	* [Install from source code](https://github.com/IntelRealSense/librealsense/blob/v2.14.1/doc/installation.md)(Recommended)<br>
 	* [Install from package](https://github.com/IntelRealSense/librealsense/blob/v2.14.1/doc/distribution_linux.md)<br>
@@ -55,15 +55,15 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 	```
 ## 4. Building and Installation
 * Build sample code under openvino toolkit
-        ```bash
-        # root is required instead of sudo
-        source /opt/intel/computer_vision_sdk/bin/setupvars.sh
-        cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
-        mdkir build
-        cd build
-        cmake ..
-        make
-        ```
+	```bash
+	# root is required instead of sudo
+	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
+	mdkir build
+	cd build
+	cmake ..
+	make
+	```
 * Install ROS2_OpenVINO packages
 	```bash
 	mkdir -p ~/ros2_overlay_ws/src
@@ -85,7 +85,7 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 	*  copy label files (excute _once_)
 		```bash
 		sudo cp ~/ros2_overlay_ws/src/ros2_openvino_toolkit/data/labels/emotions-recognition/FP32/emotions-recognition-retail-0003.labels /opt/intel/computer_vision_sdk/deployment_tools/intel_models/emotions-recognition-retail-0003/FP32
-			```
+		```
 	* set OpenVINO toolkit ENV
 		```bash
 		source /opt/intel/computer_vision_sdk/bin/setupvars.sh
