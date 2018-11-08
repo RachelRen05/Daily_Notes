@@ -14,7 +14,7 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 * Demo application to show above detection and recognitions
 
 ## 2. Prerequisite
-- An x86_64 computer running Ubuntu 16.04 and Ubuntu 18.04. Below processors are supported:
+- An x86_64 computer running Ubuntu 16.04. Below processors are supported:
 	* 6th-8th Generation Intel® Core™
 	* Intel® Xeon® v5 family
 	* Intel®  Xeon® v6 family
