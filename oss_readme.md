@@ -144,14 +144,14 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 ## 5. Running the Demo
 * Preparation
 	* download model file (excute _once_)<br>
-        ```bash
-        cd ~/code/open_model_zoo/model_downloader
-        python3 downloader.py --name face-detection-adas-0001
-        python3 downloader.py --name age-gender-recognition-retail-0013
-        python3 downloader.py --name emotions-recognition-retail-0003
-        python3 downloader.py --name head-pose-estimation-adas-0001
-	python3 downloader.py --name person-vehicle-bike-detection-crossroad-0078
-        ```
+        	```bash
+        	cd ~/code/open_model_zoo/model_downloader
+        	python3 downloader.py --name face-detection-adas-0001
+        	python3 downloader.py --name age-gender-recognition-retail-0013
+        	python3 downloader.py --name emotions-recognition-retail-0003
+        	python3 downloader.py --name head-pose-estimation-adas-0001
+		python3 downloader.py --name person-vehicle-bike-detection-crossroad-0078
+		```
 	* copy label files (excute _once_)<br>
 		```bash
 		sudo cp ~/ros2_overlay_ws/src/ros2_openvino_toolkit/data/labels/emotions-recognition/FP32/emotions-recognition-retail-0003.labels /home/<hostname>/code/open_model_zoo/model_downloader/Retail/object_attributes/emotions_recognition/0003/dldt
