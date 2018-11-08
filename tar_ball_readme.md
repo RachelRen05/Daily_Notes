@@ -19,11 +19,7 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 	* Intel® Xeon® v5 family
 	* Intel®  Xeon® v6 family
 - ROS2 [Bouncy](https://github.com/ros2/ros2/wiki)
-- OpenVINO™ Toolkit
-	* [OpenVINO™ Toolkit](https://software.intel.com/en-us/openvino-toolkit)
-	* OpenVINO™ Toolkit Open Source<br>
-  		* The [Deep Learning Deployment Toolkit](https://github.com/opencv/dldt) that helps to enable fast, heterogeneous deep learning inferencing for Intel® processors (CPU and GPU/Intel® Processor Graphics), and supports more than 100 public and custom models.<br>
-		* [Open Model Zoo](https://github.com/opencv/open_model_zoo) includes 20+ pre-trained deep learning models to expedite development and improve deep learning inference on Intel® processors (CPU, Intel Processor Graphics, FPGA, VPU), along with many samples to easily get started.
+- [OpenVINO™ Toolkit](https://software.intel.com/en-us/openvino-toolkit)
 - RGB Camera, e.g. RealSense D400 Series or standard USB camera or Video/Image File
 - Graphics are required only if you use a GPU. The official system requirements for GPU are:
 	* 6th to 8th generation Intel® Core™ processors with Iris® Pro graphics and Intel® HD Graphics
@@ -37,74 +33,13 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 
 ## 3. Environment Setup
 * Install ROS2 [Bouncy](https://github.com/ros2/ros2/wiki) ([guide](https://github.com/ros2/ros2/wiki/Linux-Development-Setup))<br>
-* Install OpenVINO™ Toolkit<br>
-	* From OpenVINO™ Toolkit tar ball
-		* [OpenVINO™ Toolkit](https://software.intel.com/en-us/openvino-toolkit) ([guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux))<br>
-    			**Note**: Please use  *root privileges* to run the installer when installing the core components.
-		* Install OpenCL Driver for GPU
-			```bash
-			cd /opt/intel/computer_vision_sdk/install_dependencies
-			sudo ./install_NEO_OCL_driver.sh
-			```
-	* From OpenVINO™ Toolkit Open Source
-		* Install [OpenCV 3.3 or later](https://docs.opencv.org/master/d9/df8/tutorial_root.html)([guide](https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html))
-			```bash
-			[compiler] sudo apt-get install build-essential
-			[required] sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-			[optional] sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev 
-			cd ~/code
-			git clone https://github.com/opencv/opencv.git
-			git clone https://github.com/opencv/opencv_contrib.git
-			cd opencv && git checkout 3.3.1 && cd ..
-			cd opencv_contrib && git checkout 3.3.1 && cd ..
-			cd opencv
-			mkdir build && cd build
-			cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=/home/<hostname>/code/opencv_contrib/modules/ ..
-			make -j8
-			sudo make install
-			```
-			* Additional steps are required on ubuntu 18.04
-				```bash
-				sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
-				sudo apt update
-				sudo apt install libjasper1 libjasper-dev
-				```
-		* Install OpenCL Driver for GPU([guide](http://registrationcenter-download.intel.com/akdlm/irc_nas/11396/intel-opencl-4.1-installation.pdf))<br>
-			```bash
-			cd ~/Downloads
-			wget http://registrationcenter-download.intel.com/akdlm/irc_nas/11396/SRB5.0_linux64.zip
-			unzip SRB5.0_linux64.zip -d SRB5.0_linux64
-			cd SRB5.0_linux64
-			sudo apt-get install xz-utils
-			mkdir intel-opencl
-			tar -C intel-opencl -Jxf intel-opencl-r5.0-63503.x86_64.tar.xz
-			tar -C intel-opencl -Jxf intel-opencl-devel-r5.0-63503.x86_64.tar.xz
-			tar -C intel-opencl -Jxf intel-opencl-cpu-r5.0-63503.x86_64.tar.xz
-			sudo cp -R intel-opencl/* /
-			sudo ldconfig
-			```
-		* Install [Deep Learning Deployment Toolkit](https://github.com/opencv/dldt)([guide](https://github.com/opencv/dldt/tree/2018/inference-engine))<br>
-			```bash
-			mkdir ~/code && cd ~/code
-			git clone https://github.com/opencv/dldt.git
-			cd dldt/inference-engine/
-			./install_dependencies.sh
-			mkdir build && cd build
-			cmake -DCMAKE_BUILD_TYPE=Release ..
-			make -j8
-			```
-			**Note**:On Ubuntu 18.04,replace libpng12-dev with libpng-dev in the install_dependencies.sh file.
-		* Install [Open Model Zoo](https://github.com/opencv/open_model_zoo)([guide](https://github.com/opencv/open_model_zoo/tree/2018/demos))<br>
-			```bash
-			cd ~/code
-			git clone https://github.com/opencv/open_model_zoo.git
-			cd open_model_zoo/demos/
-			mkdir build && cd build
-			cmake -DCMAKE_BUILD_TYPE=Release <path_to_inference_engine_demos_directory>
-			make -j8
-			```
-			**Note**:<path_to_inference_engine_demos_directory> is /home/\<hostname\>/code/dldt/inference-engine,After that you can find binaries for all demos applications in the intel64/Release subfolder.<br><br>
-
+* Install [OpenVINO™ Toolkit](https://software.intel.com/en-us/openvino-toolkit) ([guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux))<br>
+    	**Note**: Please use  *root privileges* to run the installer when installing the core components.
+	* Install OpenCL Driver for GPU
+		```bash
+		cd /opt/intel/computer_vision_sdk/install_dependencies
+		sudo ./install_NEO_OCL_driver.sh
+		```
 * Install Intel® RealSense™ SDK 2.0 [(tag v2.14.1)](https://github.com/IntelRealSense/librealsense/tree/v2.14.1)<br>
 	* [Install from source code](https://github.com/IntelRealSense/librealsense/blob/v2.14.1/doc/installation.md)(Recommended)<br>
 	* [Install from package](https://github.com/IntelRealSense/librealsense/blob/v2.14.1/doc/distribution_linux.md)<br>
@@ -113,23 +48,13 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 	```bash
 	# numpy
 	pip3 install numpy
+	# libboost
+	sudo apt-get install -y --no-install-recommends libboost-all-dev
+	cd /usr/lib/x86_64-linux-gnu
+	sudo ln -s libboost_python-py35.so libboost_python3.so
 	```
-	* Ubuntu 16.04
-		```bash
-		# libboost
-		sudo apt-get install -y --no-install-recommends libboost-all-dev
-		cd /usr/lib/x86_64-linux-gnu
-		sudo ln -s libboost_python-py35.so libboost_python3.so
-		```
-	* Ubuntu 18.04
-		```bash
-		#libboost
-		sudo apt-get install -y --no-install-recommends libboost-all-dev
-		sudo apt install libboost-python1.62.0
-		```
 ## 4. Building and Installation
-* From OpenVINO™ Toolkit tar ball
-	* Build sample code under openvino toolkit
+* Build sample code under openvino toolkit
         ```bash
         # root is required instead of sudo
         source /opt/intel/computer_vision_sdk/bin/setupvars.sh
@@ -138,18 +63,6 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
         cd build
         cmake ..
         make
-        ```
-  	* set ENV CPU_EXTENSION_LIB and GFLAGS_LIB
-        ```bash
-        export CPU_EXTENSION_LIB=/opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release            /lib/libcpu_extension.so
-        export GFLAGS_LIB=/opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release/lib/libgflags_nothreads.a
-        ```
-* From OpenVINO™ Toolkit Open Source
-	* set ENV InferenceEngine_DIR, CPU_EXTENSION_LIB and GFLAGS_LIB
-        ```bash
-        export InferenceEngine_DIR=/home/<hostname>/code/dldt/inference-engine/build/
-        export CPU_EXTENSION_LIB=/home/<hostname>/code/dldt/inference-engine/bin/intel64/Release/lib/libcpu_extension.so
-        export GFLAGS_LIB=/home/<hostname>/code/dldt/inference-engine/bin/intel64/Release/lib/libgflags_nothreads.a
         ```
 * Install ROS2_OpenVINO packages
 	```bash
@@ -168,20 +81,19 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 	```
 	
 ## 5. Running the Demo
-* From OpenVINO™ Toolkit tar ball
-	* Preparation
-		*  copy label files (excute _once_)
-			```bash
-			sudo cp ~/ros2_overlay_ws/src/ros2_openvino_toolkit/data/labels/emotions-recognition/FP32/emotions-recognition-retail-0003.labels /opt/intel/computer_vision_sdk/deployment_tools/intel_models/emotions-recognition-retail-0003/FP32
+* Preparation
+	*  copy label files (excute _once_)
+		```bash
+		sudo cp ~/ros2_overlay_ws/src/ros2_openvino_toolkit/data/labels/emotions-recognition/FP32/emotions-recognition-retail-0003.labels /opt/intel/computer_vision_sdk/deployment_tools/intel_models/emotions-recognition-retail-0003/FP32
 			```
-		* set OpenVINO toolkit ENV
-			```bash
-			source /opt/intel/computer_vision_sdk/bin/setupvars.sh
-			```
-		* set ENV LD_LIBRARY_PATH
-			```bash
-			export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release/lib
-			```
+	* set OpenVINO toolkit ENV
+		```bash
+		source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+		```
+	* set ENV LD_LIBRARY_PATH
+		```bash
+		export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release/lib
+		```
 	* run sample code with parameters extracted from [yaml](https://github.com/intel/ros2_openvino_toolkit/blob/master/sample/param/pipeline_people.yaml).
 		```bash
 		ros2 run dynamic_vino_sample pipeline_with_params -config /home/<hostname>/ros2_overlay_ws/src/ros2_openvino_toolkit/sample/param/pipeline_people.yaml
@@ -189,37 +101,6 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 	* run object detection sample code with paramters extracted from [yaml](https://github.com/intel/ros2_openvino_toolkit/blob/master/sample/param/pipeline_object.yaml).
 		```bash
 		ros2 run dynamic_vino_sample object_detection_with_params -config /home/<hostname>/ros2_overlay_ws/src/ros2_openvino_toolkit/sample/param/pipeline_object.yaml
-		```
-* From OpenVINO™ Toolkit Open Source
-	* Preparation
-		* download model file (excute _once_)<br>
-        	```bash
-        	cd ~/code/open_model_zoo/model_downloader
-        	python3 downloader.py --name face-detection-adas-0001
-        	python3 downloader.py --name age-gender-recognition-retail-0013
-        	python3 downloader.py --name emotions-recognition-retail-0003
-        	python3 downloader.py --name head-pose-estimation-adas-0001
-		python3 downloader.py --name person-vehicle-bike-detection-crossroad-0078
-        	```
-		* copy label files (excute _once_)<br>
-			```bash
-			sudo cp ~/ros2_overlay_ws/src/ros2_openvino_toolkit/data/labels/emotions-recognition/FP32/emotions-recognition-retail-0003.labels /home/<hostname>/code/open_model_zoo/model_downloader/Retail/object_attributes/emotions_recognition/0003/dldt
-			```
-		* set ENV LD_LIBRARY_PATH<br>
-			```bash
-			export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/<hostname>/code/dldt/inference-engine/bin/intel64/Release/lib
-			```
-	* run sample code with parameters extracted from [yaml](https://github.com/intel/ros2_openvino_toolkit/blob/master/sample/param/pipeline_people_oss.yaml).
-		```bash
-		ros2 run dynamic_vino_sample pipeline_with_params -config /home/<hostname>/ros2_overlay_ws/src/ros2_openvino_toolkit/sample/param/pipeline_people_oss.yaml
-		```
-	* run object detection sample code with paramters extracted from [yaml](https://github.com/intel/ros2_openvino_toolkit/blob/master/sample/param/pipeline_object.yaml).
-		```bash
-		ros2 run dynamic_vino_sample object_detection_with_params -config /home/<hostname>/ros2_overlay_ws/src/ros2_openvino_toolkit/sample/param/pipeline_object_oss.yaml
-		```
-		**Note**: Need to manually modify the path of the model file in the .yaml configuration file.
-		```bash
-		model: /home/<hostname>/code/open_model_zoo/model_downloader/Transportation/object_detection/face/pruned_mobilenet_reduced_ssd_shared_weights/dldt/face-detection-adas-0001.xml
 		```
 
 ## 6. Interfaces
