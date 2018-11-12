@@ -1,9 +1,9 @@
 # ros2_openvino_toolkit
 
 ## 1. Introduction
-The [OpenVINO™](https://software.intel.com/en-us/openvino-toolkit) toolkit quickly deploys applications and solutions that emulate human vision. Based on Convolutional Neural Networks (CNN), the Toolkit extends computer vision (CV) workloads across Intel® hardware, maximizing performance.
+The OpenVINO™ toolkit quickly deploys applications and solutions that emulate human vision. Based on Convolutional Neural Networks (CNN), the Toolkit extends computer vision (CV) workloads across Intel® hardware, maximizing performance.
 
-This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.intel.com/en-us/openvino-toolkit), providing the following features:
+This project is a ROS2 wrapper for CV API of OpenVINO™, providing the following features:
 * Support CPU and GPU platforms
 * Support standard USB camera and Intel® RealSense™ camera
 * Support Video or Image file as detection source
@@ -13,6 +13,6 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 * Head pose recognition
 * Demo application to show above detection and recognitions
 
-**Note**:We provide two ways to install the OpenVINO™ toolkit:
-From [OpenVINO™](https://software.intel.com/en-us/openvino-toolkit) toolkit tar ball installation, please refer to TAR_BALL_README.md.
+**Note**:We provide two ways to install the OpenVINO™ toolkit:<br>
+From [OpenVINO™](https://software.intel.com/en-us/openvino-toolkit) toolkit tar ball installation, please refer to TAR_BALL_README.md.<br>
 From OpenVINO toolkit open source code installation,please refer to OPEN_SOURCE_CODE_README.md
