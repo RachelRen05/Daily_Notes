@@ -1,6 +1,5 @@
-# ros2_openvino_toolkit
 
-## 1. Introduction
+# Introduction
 The OpenVINO™ toolkit quickly deploys applications and solutions that emulate human vision. Based on Convolutional Neural Networks (CNN), the Toolkit extends computer vision (CV) workloads across Intel® hardware, maximizing performance.
 
 This project is a ROS2 wrapper for CV API of OpenVINO™, providing the following features:
