@@ -14,5 +14,5 @@ This project is a ROS2 wrapper for CV API of OpenVINO™, providing the followin
 * Demo application to show above detection and recognitions
 
 **Note**:We provide two ways to install the OpenVINO™ toolkit:<br>
-From [OpenVINO™](https://software.intel.com/en-us/openvino-toolkit) toolkit tar ball installation, please refer to TAR_BALL_README.md.<br>
-From OpenVINO toolkit open source code installation,please refer to OPEN_SOURCE_CODE_README.md
+From [OpenVINO™](https://software.intel.com/en-us/openvino-toolkit) toolkit tar ball installation, please refer to *TAR_BALL_README.md*.<br>
+From OpenVINO toolkit open source code installation,please refer to *OPEN_SOURCE_CODE_README.md*
