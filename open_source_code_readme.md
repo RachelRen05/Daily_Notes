@@ -35,6 +35,11 @@ This project is a ROS2 wrapper for CV API of [OpenVINO™](https://software.inte
 	* Openvino: Download the install package, install_GUI.sh inside will check the GPU information before installation.
 
 ## 3. Environment Setup
+**Note**:You can choose to build the environment using ./environment_setup.sh script.
+```bash
+./environment_setup.sh hostname password
+```
+**Note**:You can also choose to follow the steps below to build the environment step by step.
 * Install ROS2 [Bouncy](https://github.com/ros2/ros2/wiki) ([guide](https://github.com/ros2/ros2/wiki/Linux-Development-Setup))<br>
 * Install OpenVINO™ Toolkit Open Source<br>
 	* Install [OpenCV 3.3 or later](https://docs.opencv.org/master/d9/df8/tutorial_root.html)([guide](https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html))
