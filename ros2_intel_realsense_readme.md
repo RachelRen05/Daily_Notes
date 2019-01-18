@@ -50,7 +50,7 @@ The following instructions were verified with ROS2 Bouncy on **Ubutnu 18.04**.
   ```
   * [ros2_intel_realsense](https://github.com/intel/ros2_intel_realsense) (The only supported RGB-D camera by now is Intel RealSense)
 
-## Install from source
+### Install from source
 ```bash
 #get code
 mkdir -p ~/ros2_overlay_ws/src
