@@ -53,12 +53,12 @@ The following instructions were verified with ROS2 Bouncy on **Ubutnu 18.04**.
 ### Install from source
 ```bash
 #get code
-mkdir -p ~/ros2_overlay_ws/src
+mkdir -p ~/ros2_ws/src
 cd ~/ros2_overlay_ws/src
 git clone https://github.com/intel/ros2_intel_realsense.git
 
 #build
-cd ~/ros2_overlay_ws
+cd ~/ros2_ws
 source /opt/ros/crystal/local_setup.bash
 colcon build --base-paths src/ros2_intel_realsense
 source ./install/local_setup.bash
@@ -94,11 +94,11 @@ This will stream all camera sensors and publish on the appropriate ROS2 topics. 
 To start the camera node in ROS2 and view the depth pointcloud in rviz:
 ```bash
 # console #1 launch realsense_ros2_camera
-$ source ~/ros2_overlay_ws/install/local_setup.bash
+$ source ~/ros2_ws/install/local_setup.bash
 $ realsense_ros2_camera
 
 # console #2 launch rviz2
-$ source ~/ros2_overlay_ws/install/local_setup.bash
+$ source ~/ros2_ws/install/local_setup.bash
 $ ros2 run rviz2 rviz2
 # add image and pointcloud2 and select topic in rviz.
 ```
