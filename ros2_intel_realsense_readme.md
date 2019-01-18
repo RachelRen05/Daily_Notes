@@ -10,6 +10,7 @@ The following instructions were verified with ROS2 Bouncy on **Ubutnu 18.04**.
   ```bash
   sudo apt-get install ros-crystal-desktop
   ```
+  The ros-crystal-desktop will include below packages.
   * ament_cmake
   * std_msgs
   * sensor_msgs
@@ -44,17 +45,19 @@ The following instructions were verified with ROS2 Bouncy on **Ubutnu 18.04**.
   * libgl1-mesa-dev
   * libglu1-mesa-dev
 
-### Install binary packages
+### Install ros2_intel_realsense binary packages
   ```
   sudo apt-get install ros-crystal-realsense-camera-msgs ros-crystal-realsense-ros2-camera
   ```
   * [ros2_intel_realsense](https://github.com/intel/ros2_intel_realsense) (The only supported RGB-D camera by now is Intel RealSense)
 
-### Install from source
+The ros2_intel_realsense packages installation have been completed. You could jump to [Usage Instructions](https://github.com/intel/ros2_intel_realsense#usage-instructions) for executing, you could also install ros2_intel_realsense from source for more features. 
+
+### Install ros2_intel_realsense from source
 ```bash
 #get code
 mkdir -p ~/ros2_ws/src
-cd ~/ros2_overlay_ws/src
+cd ~/ros2_ws/src
 git clone https://github.com/intel/ros2_intel_realsense.git
 
 #build
@@ -70,10 +73,12 @@ source ./install/local_setup.bash
 To start the camera node in ROS2, plug in the camera, then type the following command:
 
 ```bash
+source /opt/ros/crystal/local_setup.bash
+source ~/ros2_ws/local_setup.bash
 # To launch with "ros2 run"
-$ ros2 run realsense_ros2_camera realsense_ros2_camera
+ros2 run realsense_ros2_camera realsense_ros2_camera
 # OR, to invoke the executable directly
-$ realsense_ros2_camera
+realsense_ros2_camera
 ```
 
 This will stream all camera sensors and publish on the appropriate ROS2 topics. PointCloud2 is enabled by default, till we provide ROS2 python launch options.
@@ -94,12 +99,14 @@ This will stream all camera sensors and publish on the appropriate ROS2 topics. 
 To start the camera node in ROS2 and view the depth pointcloud in rviz:
 ```bash
 # console #1 launch realsense_ros2_camera
-$ source ~/ros2_ws/install/local_setup.bash
-$ realsense_ros2_camera
+source /opt/ros/crystal/local_setup.bash
+source ~/ros2_ws/local_setup.bash
+realsense_ros2_camera
 
 # console #2 launch rviz2
-$ source ~/ros2_ws/install/local_setup.bash
-$ ros2 run rviz2 rviz2
+source /opt/ros/crystal/local_setup.bash
+source ~/ros2_ws/local_setup.bash
+ros2 run rviz2 rviz2
 # add image and pointcloud2 and select topic in rviz.
 ```
 
@@ -109,7 +116,7 @@ This will launch [RViz](http://wiki.ros.org/rviz) and display the five streams: 
 
 ### Run tests
 ```Shell
-$ colcon test --base-paths src/ros2_intel_realsense
+colcon test --base-paths src/ros2_intel_realsense
 ```
 
 ## Known Issues
