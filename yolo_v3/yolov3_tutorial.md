@@ -43,7 +43,7 @@
   ```
   - To generate the IR of the YOLOv3-tiny TensorFlow model, run:
   
-  **Note**: A few minor modifications to yolo_v3.json, remove "detector/yolo-v3-tiny/Reshape_8" in entry_points filed.
+  **Note**: OpenVINO 2019_R1 works fine.(2019_R1 includes the yolo_v3_tiny.json)
   ```bash
 	sudo python3 mo_tf.py --input_model /home/intel/Downloads/tensorflow-yolo-v3/frozen_darknet_yolov3_model.pb --tensorflow_use_custom_operations_config /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/extensions/front/tf/yolo_v3_tiny.json --input_shape=[1,416,416,3] --output_dir /home/intel/Downloads/tensorflow-yolo-v3/output/yolov3tiny
   ```
