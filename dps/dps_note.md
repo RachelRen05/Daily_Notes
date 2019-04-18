@@ -1,15 +1,12 @@
-1. Prerequisites
-```bash
-git clone https://github.com/intel/dps-for-iot.git
-```
-2. Building
+1. Building
   
   **Note**:do some modifications in SConscript, refer to https://github.com/RachelRen05/Daily_Notes/blob/master/dps/SConscript
 ```bash
+git clone https://github.com/intel/dps-for-iot.git
 cd ~/dps-for-iot
 scons variant=release transport=udp bindings=python
 ```
-3. Running
+2. Running
 ```bash
 export PYTHONPATH=~/dps-for-iot/build/dist/py
 python simple_pub.py
